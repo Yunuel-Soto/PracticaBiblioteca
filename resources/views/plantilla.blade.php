@@ -14,10 +14,10 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark navar">
         <div class="container-fluid">
-          <a class="navbar-brand a" href="{{route('main')}}">Biblioteca</a>
+          <a class="navbar-brand a {{request()->routeIs('main')?'fs-4':''}}" href="{{route('main')}}">Biblioteca</a>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active a" aria-current="page" href="{{route('regis')}}">Registro de libros</a>
+                    <a class="nav-link active a {{request()->routeIs('regis')?'fs-4':''}}" aria-current="page" href="{{route('regis')}}">Registro de libros</a>
                     <a class="nav-link active a" aria-current="page" href="#">Consulta de libros</a>
                 </div>
             </div>

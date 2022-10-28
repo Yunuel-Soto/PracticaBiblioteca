@@ -4,7 +4,7 @@
     @if(session()->has('guardar'))
         {!! "<script> Swal.fire({
             icon: 'success',
-            title: 'Tu libro se a guardado exitosamente',
+            title: 'Tu libro " . session()->get("guardar") . " se a guardado exitosamente',
             showConfirmButton: false,
             timer: 1500
           }) </script>" !!} {{--imprime sin restricciones --}}

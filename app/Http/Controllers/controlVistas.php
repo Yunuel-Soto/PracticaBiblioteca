@@ -15,6 +15,8 @@ class controlVistas extends Controller
         return view('principal');
     }
     public function Guardar(validarForm $req){
-        return redirect()->route('regis')->with('guardar', 'Libro guardado');
+    $titulo = $req->input('titulo'); //Otra forma
+    // $titulo = $_POST("titulo");
+    return redirect()->route('regis')->with('guardar', $titulo);
     }
 }

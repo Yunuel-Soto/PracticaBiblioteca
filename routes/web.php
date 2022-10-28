@@ -23,6 +23,6 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('Registro', [controlVistas::class, 'showRegistro'])->name('regis');
-Route::get('principal', [controlVistas::class, 'showPrincipal'])->name('main');
+Route::get('/', [controlVistas::class, 'showPrincipal'])->name('main');
 
 Route::post('guardar', [controlVistas::class, 'Guardar'])->name('save');
