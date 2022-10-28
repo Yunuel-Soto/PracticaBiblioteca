@@ -26,7 +26,7 @@ class validarForm extends FormRequest
         return [
             'titulo' => 'required',
             'autor' => 'required',
-            'isbn' => 'required|min:13|integer',
+            'isbn' => 'required|min_digits:13',
             'editorial' => 'required',
             'email' => 'required|email',
             'paginas' => 'required|integer'
@@ -38,8 +38,7 @@ class validarForm extends FormRequest
             'titulo.required' => '*Campo obligatorio',
             'autor.required' => '*Campo obligatorio',
             'isbn.required' => '*Campo obligatorio',
-            'isbn.integer' => '*Solo se aceptan numeros',
-            'isbn.min' => '*Solo se aceptan numeros',
+            'isbn.min_digits' => '*Se requieren minimo 13 numeros',
             'editorial.required' => '*Campo obligatorio',
             'email.required' => '*Campo obligatorio',
             'paginas.required' => '*Campo obligatorio',
