@@ -2,7 +2,7 @@
 
 @section('relleno')
 
-    @if(session()->has('guardar'))
+    @if(session()->has('guardado'))
         {!! "<script> Swal.fire({
             icon: 'success',
             title: 'Tu libro " . session()->get("guardar") . " se a guardado exitosamente',

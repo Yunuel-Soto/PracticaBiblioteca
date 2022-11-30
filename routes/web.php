@@ -35,4 +35,5 @@ Route::get('libros/create', [controlBD::class, 'create'])->name('libros.create')
 Route::post('libros', [controlBD::class, 'store'])->name('libros.store');
 // Route::get('libros/edit/{id}', [controlBD::class, 'edit'])->name('libros.edit');
 Route::PUT('libros/update/{id}', [controlBD::class, 'update'])->name('libros.update');
-Route::delete('libros/delete/{id}', [controlBD::class, 'destroy'])->name('libros.delete');
+
+Route::delete('libros/destroy/{id}', [controlBD::class, 'destroy'])->name('libros.destroy');

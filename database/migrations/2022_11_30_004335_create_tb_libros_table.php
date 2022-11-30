@@ -17,10 +17,11 @@ return new class extends Migration
             $table->increments('idLibro');
             $table->string('titulo');
             $table->string('autor');
-            $table->integer('isbn');
+            $table->string('isbn');
             $table->string('editorial');
             $table->integer('paginas');
             $table->string('email');
+            $table->date('fecha');
             $table->timestamps();
         });
     }

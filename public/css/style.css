@@ -80,3 +80,9 @@ footer{
 .eliminlabel2{
     color:rgb(32, 32, 182);
 }
+.card-header, .card-footer{
+    background-color: rgba(44, 46, 138, 0.317);
+}
+.card-body{
+    background-color: rgba(205, 214, 214, 0.632);
+}
