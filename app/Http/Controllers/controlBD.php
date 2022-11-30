@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\validarForm;
 use Illuminate\Http\Request;
-
+use DB;
+use Carbon\Carbon; //Para las fechas de registro, actualizacion y eliminacion
+use Illuminate\Auth\Events\Validated;
 class controlBD extends Controller
 {
     /**
@@ -13,72 +16,60 @@ class controlBD extends Controller
      */
     public function index()
     {
-        //
+        $result = DB::table('tb_libros')->get();
+        return view('consultaLibros', compact('result'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('registro');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(validarForm $req)
     {
-        //
+        DB::table('tb_libros')->insert([
+            "titulo" => $req->input('titulo'),
+            "autor" => $req->input('autor'),
+            "isbn" => $req->input('isbn'),
+            "editorial" => $req->input('editorial'),
+            "paginas" => $req->input('paginas'),
+            "email" => $req->input('email'),
+            "fecha"=>Carbon::now(),
+            "created_at"=>Carbon::now(),
+            "updated_at"=>Carbon::now(),
+        ]);
+        return redirect('libros/create')->with('guardado', 'abc');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
-        //
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+
+    public function update(validarForm $req, $id)
     {
-        //
+        $result= DB::table('tb_libros')->where('idLibro', $id)->update([
+            'titulo' => $req->input('titulo'),
+            'autor' => $req->input('autor'),
+            'isbn' => $req->input('isbn'),
+            'editorial' => $req->input('editorial'),
+            'paginas' => $req->input('paginas'),
+            'email' => $req->input('email')
+        ]);
+        return redirect('libros')->with('edicion', 'abc');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        DB::table('tb_libros')->where('idLibro', $id)->delete();
+        return redirect('libros')->with('eliminar', 'abc');
     }
 }

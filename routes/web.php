@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\controlBD;
 use App\Http\Controllers\controlVistas;
 use Illuminate\Support\Facades\Route;
 
@@ -22,10 +23,16 @@ use Illuminate\Support\Facades\Route;
 //     return view('registro');
 // });
 
-Route::get('Registro', [controlVistas::class, 'showRegistro'])->name('regis');
 Route::get('/', [controlVistas::class, 'showPrincipal'])->name('main');
 
-Route::post('guardar', [controlVistas::class, 'Guardar'])->name('save');
+// Route::post('guardar', [controlVistas::class, 'Guardar'])->name('save');
 
-Route::get('clientesRegistro', [controlVistas::class, 'showCliRegis'])->name('shCl');
-Route::post('guardarCl', [controlVistas::class, 'GuardarCliente'])->name('saveCl');
+// Route::get('clientesRegistro', [controlVistas::class, 'showCliRegis'])->name('shCl');
+// Route::post('guardarCl', [controlVistas::class, 'GuardarCliente'])->name('saveCl');
+
+Route::get('libros', [controlBD::class, 'index'])->name('libros.consulta');
+Route::get('libros/create', [controlBD::class, 'create'])->name('libros.create');
+Route::post('libros', [controlBD::class, 'store'])->name('libros.store');
+// Route::get('libros/edit/{id}', [controlBD::class, 'edit'])->name('libros.edit');
+Route::PUT('libros/update/{id}', [controlBD::class, 'update'])->name('libros.update');
+Route::delete('libros/delete/{id}', [controlBD::class, 'destroy'])->name('libros.delete');

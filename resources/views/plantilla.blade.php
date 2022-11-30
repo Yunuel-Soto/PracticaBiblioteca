@@ -17,9 +17,9 @@
           <a class="navbar-brand a {{request()->routeIs('main')?'fs-4':''}}" href="{{route('main')}}">Biblioteca</a>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active a {{request()->routeIs('regis')?'fs-4':''}}" aria-current="page" href="{{route('regis')}}">Registro de libros</a>
-                    <a class="nav-link active a" aria-current="page" href="#">Consulta de libros</a>
-                    <a class="nav-link active a {{request()->routeIs('shCl')?'fs-4':''}}" aria-current="page" href="{{route('shCl')}}">Registrarme</a>
+                    <a class="nav-link active a {{request()->routeIs('libros.create')?'fs-4':''}}" aria-current="page" href="{{route('libros.create')}}">Registro de libros</a>
+                    <a class="nav-link active a {{request()->routeIs('libros.consulta')?'fs-4':''}}" aria-current="page" href="{{route('libros.consulta')}}">Consulta de libros</a>
+                    <a class="nav-link active a " aria-current="page" href="">Registrarme</a>
                 </div>
             </div>
         </div>

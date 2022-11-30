@@ -71,3 +71,12 @@ footer{
 .p{
     text-align: left;
 }
+.labels{
+    color:rgb(0, 55, 255);
+}
+.eliminlabelt{
+    color: rgb(227, 48, 48);
+}
+.eliminlabel2{
+    color:rgb(32, 32, 182);
+}

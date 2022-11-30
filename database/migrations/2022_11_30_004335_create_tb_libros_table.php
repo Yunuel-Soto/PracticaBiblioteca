@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('editorial');
             $table->integer('paginas');
             $table->string('email');
+            $table->timestamps();
         });
     }
 

@@ -11,7 +11,7 @@
           }) </script>"!!} {{--imprime sin restricciones --}}
     @endif
 
-    <form action="{{route('save')}}" method="POST" class="formulario">
+    <form action="{{route('libros.store')}}" method="POST" class="formulario">
         @csrf
         <p class="parrafo">
             Registro
