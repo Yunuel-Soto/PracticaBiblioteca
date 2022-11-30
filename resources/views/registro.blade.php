@@ -1,13 +1,14 @@
 @extends('plantilla')
 
 @section('relleno')
+
     @if(session()->has('guardar'))
         {!! "<script> Swal.fire({
             icon: 'success',
             title: 'Tu libro " . session()->get("guardar") . " se a guardado exitosamente',
             showConfirmButton: false,
             timer: 1500
-          }) </script>" !!} {{--imprime sin restricciones --}}
+          }) </script>"!!} {{--imprime sin restricciones --}}
     @endif
 
     <form action="{{route('save')}}" method="POST" class="formulario">

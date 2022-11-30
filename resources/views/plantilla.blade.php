@@ -19,6 +19,7 @@
                 <div class="navbar-nav">
                     <a class="nav-link active a {{request()->routeIs('regis')?'fs-4':''}}" aria-current="page" href="{{route('regis')}}">Registro de libros</a>
                     <a class="nav-link active a" aria-current="page" href="#">Consulta de libros</a>
+                    <a class="nav-link active a {{request()->routeIs('shCl')?'fs-4':''}}" aria-current="page" href="{{route('shCl')}}">Registrarme</a>
                 </div>
             </div>
         </div>
