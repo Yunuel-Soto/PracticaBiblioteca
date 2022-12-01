@@ -43,5 +43,7 @@ Route::delete('libros/destroy/{id}', [controlBD::class, 'destroy'])->name('libro
 Route::get('users/create', [controlBD_users::class, 'create'])->name('users.create');
 Route::get('users',[controlBD_users::class, 'index'])->name('user.index');
 Route::post('users/store', [controlBD_users::class, 'store'])->name('user.store');
+
 Route::PUT('users/update/{id}', [controlBD_users::class, 'update'])->name('user.update');
+
 Route::delete('users/destroy/{id}', [controlBD_users::class, 'destroy'])->name('user.destroy');

@@ -4,16 +4,16 @@
 
     @if (session()->has('eliminacionU'))
         {!! "<script> Swal.fire(
-                            'Buen trabajo',
-                            'Usuario eliminado',
-                            'success') </script>" !!} {{-- imprime sin restricciones --}}
+                                    'Buen trabajo',
+                                    'Usuario eliminado',
+                                    'success') </script>" !!} {{-- imprime sin restricciones --}}
     @endif
 
     @if (session()->has('edicionU'))
         {!! "<script> Swal.fire(
-                            'Buen trabajo',
-                            'Usuario actualizado',
-                            'success') </script>" !!} {{-- imprime sin restricciones --}}
+                                    'Buen trabajo',
+                                    'Usuario actualizado',
+                                    'success') </script>" !!} {{-- imprime sin restricciones --}}
     @endif
     <br>
 
@@ -29,6 +29,7 @@
                     <th scope="col">Eliminar</th>
                 </tr>
             </thead>
+
             @foreach ($result as $consulta)
                 @include('modals/modalActualizarUs', ['id' => $consulta->id])
                 @include('modals/modalEliminarUs', ['id' => $consulta->id])
@@ -38,13 +39,16 @@
                         <td>{{ $consulta->nombre }}</td>
                         <td>{{ $consulta->email }}</td>
                         <td>{{ $consulta->ine }}</td>
-                        <td><a type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#ModalActualizarUs{{$consulta->id}}">
-                            <img src="/img/editar.png" alt=""></a>
+                        <td>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#ModalActualizarUs{{ $consulta->id }}">
+                                <img src="/img/editar.png" alt="">
+                            </button>
                         </td>
-                        <td><a type="button" class="btn btn-danger" data-bs-toggle="modal"
-                            data-bs-target="#ModalEliminarUs{{$consulta->id}}">
-                            <img src="/img/eliminar.png" alt=""></a>
+                        <td>
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#ModalEliminarUs{{ $consulta->id }}">
+                                <img src="/img/eliminar.png" alt=""></button>
                         </td>
                     </tr>
                 </tbody>

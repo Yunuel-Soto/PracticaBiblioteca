@@ -26,8 +26,11 @@ class controlBD_users extends Controller
     {
         DB::table('tb_users')->insert([
             "nombre" => $req->input('nombre'),
-            "email" => $req->input('correo'),
-            "ine" => $req->input('ine')
+            "email" => $req->input('email'),
+            "ine" => $req->input('ine'),
+            "fecha"=>Carbon::now(),
+            "created_at"=>Carbon::now(),
+            "updated_at"=>Carbon::now(),
         ]);
         return redirect('users/create')->with('guardarUser', 'abc');
     }
@@ -45,16 +48,18 @@ class controlBD_users extends Controller
 
     public function update(validarClientes $req, $id)
     {
-        $dato = DB::table('tb_users')->where('id', $id)->update([
+        $result= DB::table('tb_users')->where('id', $id)->update([
             "nombre" => $req->input('nombre'),
-            "email" => $req->input('correo'),
+            "email" => $req->input('email'),
             "ine" => $req->input('ine')
         ]);
+
         return redirect('users')->with('edicionU', 'abc');
     }
 
     public function destroy($id)
     {
-        //
+        DB::table('tb_users')->where('id', $id)->delete();
+        return redirect('users')->with('eliminacionU', 'abc');
     }
 }

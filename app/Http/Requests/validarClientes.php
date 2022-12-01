@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\Password;
 
 class validarClientes extends FormRequest
 {
@@ -26,7 +27,7 @@ class validarClientes extends FormRequest
         return [
             'nombre' => 'required|min:4',
             'ine' => 'required|min_digits:10',
-            'correo' => 'required|email',
+            'email' => 'required|email',
         ];
     }
     public function messages()
@@ -34,10 +35,10 @@ class validarClientes extends FormRequest
         return [
             'nombre.required' => '*Campo obligarotio',
             'ine.required' => '*Campo obligatorio',
-            'correo.required' => '*Campo obligatorio',
+            'email.required' => '*Campo obligatorio',
             'nombre.min' => '*Minimo cuatro caracteres',
             'ine.min_digits' => '*Minimo 10 caracteres NUMERICOS',
-            'correo.email' => '*Correo invalido'
+            'email.email' => '*Correo invalido'
         ];
     }
 }

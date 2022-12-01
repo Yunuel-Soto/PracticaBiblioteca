@@ -2,7 +2,7 @@
 <form method="POST" action="{{route('user.update', $consulta->id)}}">
     @csrf
     @method('PUT')
-    <div class="modal fade" id="ModalActualizarUs{{$id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    <div class="modal fade" id="ModalActualizarUs{{$consulta->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="ModalActualizarUs" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

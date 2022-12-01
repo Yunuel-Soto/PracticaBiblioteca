@@ -39,6 +39,7 @@
                     data-bs-target="#ModalActualizarLib{{$consulta->idLibro}}">
                     <i class="bi bi-pencil"></i> Editar
                 </button>
+
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                     data-bs-target="#ModalEliminarLib{{$consulta->idLibro}}">
                     <i class="bi bi-trash3"></i> Eliminar
