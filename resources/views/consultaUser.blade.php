@@ -25,6 +25,7 @@
                     <th scope="col">Usuario</th>
                     <th scope="col">Email</th>
                     <th scope="col">INE</th>
+                    <th scope="col">Fecha</th>
                     <th scope="col">Editar</th>
                     <th scope="col">Eliminar</th>
                 </tr>
@@ -37,6 +38,7 @@
                         <td>{{ $consulta->nombre }}</td>
                         <td>{{ $consulta->email }}</td>
                         <td>{{ $consulta->ine }}</td>
+                        <td>{{ $consulta->fecha }}</td>
                         <td>
                             <a href="{{route('user.edit', $consulta->idUsers)}}"><button type="submit" class="btn btn-primary"><img src="/img/editar.png" alt=""></button></a>
                         </td>

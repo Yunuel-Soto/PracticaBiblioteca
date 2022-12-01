@@ -13,6 +13,8 @@
                     <h5 class="eliminlabel">Editorial: {{$consulta->editorial}}</h5>
                     <h5 class="eliminlabel">No Paginas: {{$consulta->paginas}}</h5>
                     <h5 class="eliminlabel">Contacto: {{$consulta->email}}</h5>
+                    <h5 class="eliminlabel">Fecha del registro: {{$consulta->fecha}}</h5>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">volver</button>
