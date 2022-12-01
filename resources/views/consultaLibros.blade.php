@@ -5,7 +5,7 @@
 @if (session()->has('Eliminacion'))
     {!! "<script> Swal.fire(
                     'Buen trabajo',
-                    'Recuerdo eliminado',
+                    'Libro eliminado',
                     'success') </script>" !!} {{-- imprime sin restricciones --}}
 @endif
 
@@ -16,11 +16,10 @@
                     'success') </script>" !!} {{-- imprime sin restricciones --}}
 @endif
 {{-- SwitAlert --}}
-
+<br>
 @foreach ($result as $consulta)
-        <br>
-    @include('modals/modalActualizarLib')
-    @include('modals/modalEliminarLib')
+    @include('modals/modalActualizarLib', ['id' => $consulta->idLibro])
+    @include('modals/modalEliminarLib', ['id' => $consulta->idLibro])
 
     <div class="container col-md-6">
 
@@ -37,11 +36,11 @@
 
             <div class="card-footer">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                    data-bs-target="#ModalActualizarLib">
+                    data-bs-target="#ModalActualizarLib{{$consulta->idLibro}}">
                     <i class="bi bi-pencil"></i> Editar
                 </button>
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                    data-bs-target="#ModalEliminarLib">
+                    data-bs-target="#ModalEliminarLib{{$consulta->idLibro}}">
                     <i class="bi bi-trash3"></i> Eliminar
                 </button>
             </div>

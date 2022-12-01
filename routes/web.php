@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\controlBD;
+use App\Http\Controllers\controlBD_users;
 use App\Http\Controllers\controlVistas;
 use Illuminate\Support\Facades\Route;
 
@@ -37,3 +38,10 @@ Route::post('libros', [controlBD::class, 'store'])->name('libros.store');
 Route::PUT('libros/update/{id}', [controlBD::class, 'update'])->name('libros.update');
 
 Route::delete('libros/destroy/{id}', [controlBD::class, 'destroy'])->name('libros.destroy');
+
+// RUTAS DE USUARIOS
+Route::get('users/create', [controlBD_users::class, 'create'])->name('users.create');
+Route::get('users',[controlBD_users::class, 'index'])->name('user.index');
+Route::post('users/store', [controlBD_users::class, 'store'])->name('user.store');
+Route::PUT('users/update/{id}', [controlBD_users::class, 'update'])->name('user.update');
+Route::delete('users/destroy/{id}', [controlBD_users::class, 'destroy'])->name('user.destroy');
