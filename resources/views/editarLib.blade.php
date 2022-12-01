@@ -2,21 +2,11 @@
 
 @section('relleno')
 
-    @if (session()->has('guardado'))
-        {!! "<script> Swal.fire({
-                    icon: 'success',
-                    title: 'Tu libro " .
-            session()->get('guardar') .
-            " se a guardado exitosamente',
-                    showConfirmButton: false,
-                    timer: 1500
-                  }) </script>" !!} {{-- imprime sin restricciones --}}
-    @endif
-
-    <form action="{{ route('libros.store') }}" method="POST" class="formulario">
+    <form method="POST" action="{{route('libros.update', $datos->idLibro)}}" class="formulario edit">
         @csrf
+        @method('PUT')
         <p class="parrafo">
-            Registro
+            Editar Libro
         </p>
         <label for="">Titulo</label>
         <div class="input-group">
@@ -24,7 +14,7 @@
                 <input class="form-check-input mt-0" type="radio" value=""
                     aria-label="Radio button for following text input">
             </div>
-            <input name="titulo" type="text" class="form-control" value="{{ old('titulo') }}"
+            <input name="titulo" type="text" class="form-control" value="{{ $datos->titulo }}"
                 aria-label="Text input with radio button">
         </div>
         <p class="text-danger fst-italic p"> {{ $errors->first('titulo') }} </p>
@@ -34,7 +24,7 @@
                 <input class="form-check-input mt-0" type="radio" value=""
                     aria-label="Radio button for following text input">
             </div>
-            <input name="autor" type="text" class="form-control" value="{{ old('autor') }}"
+            <input name="autor" type="text" class="form-control" value="{{ $datos->autor }}"
                 aria-label="Text input with radio button">
         </div>
         <p class="text-danger fst-italic p">{{ $errors->first('autor') }}</p>
@@ -44,7 +34,7 @@
                 <input class="form-check-input mt-0" type="radio" value=""
                     aria-label="Radio button for following text input">
             </div>
-            <input name="isbn" type="text" class="form-control" value="{{ old('isbn') }}"
+            <input name="isbn" type="text" class="form-control" value="{{ $datos->isbn }}"
                 aria-label="Text input with radio button">
         </div>
         <p class="text-danger fst-italic p">{{ $errors->first('isbn') }}</p>
@@ -54,7 +44,7 @@
                 <input class="form-check-input mt-0" type="radio" value=""
                     aria-label="Radio button for following text input">
             </div>
-            <input name="editorial" type="text" class="form-control" value="{{ old('editorial') }}"
+            <input name="editorial" type="text" class="form-control" value="{{ $datos->editorial }}"
                 aria-label="Text input with radio button">
         </div>
         </div>
@@ -65,7 +55,7 @@
                 <input class="form-check-input mt-0" type="radio" value=""
                     aria-label="Radio button for following text input">
             </div>
-            <input name="paginas" type="text" class="form-control" value="{{ old('paginas') }}"
+            <input name="paginas" type="text" class="form-control" value="{{ $datos->paginas }}"
                 aria-label="Text input with radio button">
         </div>
         <p class="text-danger fst-italic p">{{ $errors->first('paginas') }}</p>
@@ -75,7 +65,7 @@
                 <input class="form-check-input mt-0" type="radio" value=""
                     aria-label="Radio button for following text input">
             </div>
-            <input name="email" type="text" class="form-control" value="{{ old('email') }}"
+            <input name="email" type="text" class="form-control" value="{{ $datos->email }}"
                 aria-label="Text input with radio button">
         </div>
         <p class="text-danger fst-italic p"> {{ $errors->first('email') }}</p>

@@ -58,6 +58,16 @@ footer{
     font-size: 120%;
     text-align: center;
 }
+.edit{
+    background-color: rgba(154, 193, 100, 0.363);
+}
+.elim{
+    background-color: rgba(179, 41, 41, 0.562);
+}
+.letras{
+    font-size: 25px;
+    text-align: left;
+}
 .parrafo{
     font-size: 200%;
 }

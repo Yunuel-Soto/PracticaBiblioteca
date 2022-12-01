@@ -34,16 +34,18 @@ Route::get('/', [controlVistas::class, 'showPrincipal'])->name('main');
 Route::get('libros', [controlBD::class, 'index'])->name('libros.consulta');
 Route::get('libros/create', [controlBD::class, 'create'])->name('libros.create');
 Route::post('libros', [controlBD::class, 'store'])->name('libros.store');
-// Route::get('libros/edit/{id}', [controlBD::class, 'edit'])->name('libros.edit');
+//Para eliminar y actualizar
+Route::get('libros/edit/{id}', [controlBD::class, 'edit'])->name('libros.edit');
 Route::PUT('libros/update/{id}', [controlBD::class, 'update'])->name('libros.update');
-
+Route::get('libros/show/{id}', [controlBD::class, 'show'])->name('libros.show');
 Route::delete('libros/destroy/{id}', [controlBD::class, 'destroy'])->name('libros.destroy');
 
 // RUTAS DE USUARIOS
-Route::get('users/create', [controlBD_users::class, 'create'])->name('users.create');
 Route::get('users',[controlBD_users::class, 'index'])->name('user.index');
-Route::post('users/store', [controlBD_users::class, 'store'])->name('user.store');
-
+Route::get('users/create', [controlBD_users::class, 'create'])->name('user.create');
+Route::post('users', [controlBD_users::class, 'store'])->name('user.store');
+//para eliminar y actualizar
+Route::get('users/edit/{id}', [controlBD_users::class, 'edit'])->name('user.edit');
 Route::PUT('users/update/{id}', [controlBD_users::class, 'update'])->name('user.update');
-
+Route::get('users/show/{id}', [controlBD_users::class, 'show'])->name('user.show');
 Route::delete('users/destroy/{id}', [controlBD_users::class, 'destroy'])->name('user.destroy');

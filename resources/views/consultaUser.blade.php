@@ -31,24 +31,17 @@
             </thead>
 
             @foreach ($result as $consulta)
-                @include('modals/modalActualizarUs', ['id' => $consulta->id])
-                @include('modals/modalEliminarUs', ['id' => $consulta->id])
                 <tbody>
                     <tr>
-                        <th scope="row">{{ $consulta->id }}</th>
+                        <th scope="row">{{ $consulta->idUsers }}</th>
                         <td>{{ $consulta->nombre }}</td>
                         <td>{{ $consulta->email }}</td>
                         <td>{{ $consulta->ine }}</td>
                         <td>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#ModalActualizarUs{{ $consulta->id }}">
-                                <img src="/img/editar.png" alt="">
-                            </button>
+                            <a href="{{route('user.edit', $consulta->idUsers)}}"><button type="submit" class="btn btn-primary"><img src="/img/editar.png" alt=""></button></a>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#ModalEliminarUs{{ $consulta->id }}">
-                                <img src="/img/eliminar.png" alt=""></button>
+                            <a href="{{route('user.show', $consulta->idUsers)}}"><button type="submit" class="btn btn-danger"><img src="/img/eliminar.png" alt=""></button></a>
                         </td>
                     </tr>
                 </tbody>

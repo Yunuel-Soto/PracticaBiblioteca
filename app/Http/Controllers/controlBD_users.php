@@ -37,18 +37,20 @@ class controlBD_users extends Controller
 
     public function show($id)
     {
-        //
+        $datos = DB::table('tb_users')->where('idUsers', $id)->first();
+        return view('eliminarUs', compact('datos'));
     }
 
 
     public function edit($id)
     {
-        //
+        $datos = DB::table('tb_users')->where('idUsers', $id)->first();
+        return view('editarUs', compact('datos'));
     }
 
     public function update(validarClientes $req, $id)
     {
-        $result= DB::table('tb_users')->where('id', $id)->update([
+        $result= DB::table('tb_users')->where('idUsers', $id)->update([
             "nombre" => $req->input('nombre'),
             "email" => $req->input('email'),
             "ine" => $req->input('ine')
@@ -59,7 +61,7 @@ class controlBD_users extends Controller
 
     public function destroy($id)
     {
-        DB::table('tb_users')->where('id', $id)->delete();
+        DB::table('tb_users')->where('idUsers', $id)->delete();
         return redirect('users')->with('eliminacionU', 'abc');
     }
 }

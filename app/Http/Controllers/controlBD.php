@@ -44,13 +44,15 @@ class controlBD extends Controller
 
     public function show($id)
     {
-        //
+        $datos = DB::table('tb_libros')->where('idLibro', $id)->first();
+        return view('eliminarLib', compact('datos'));
     }
 
 
     public function edit($id)
     {
-
+        $datos = DB::table('tb_libros')->where('idLibro', $id)->first();
+        return view('editarLib', compact('datos'));
     }
 
 

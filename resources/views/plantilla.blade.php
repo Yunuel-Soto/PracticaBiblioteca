@@ -19,7 +19,7 @@
                 <div class="navbar-nav">
                     <a class="nav-link active a {{request()->routeIs('libros.create')?'fs-4':''}}" aria-current="page" href="{{route('libros.create')}}">Registro de libros</a>
                     <a class="nav-link active a {{request()->routeIs('libros.consulta')?'fs-4':''}}" aria-current="page" href="{{route('libros.consulta')}}">Consulta de libros</a>
-                    <a class="nav-link active a {{request()->routeIs('users.create')?'fs-4':''}}" aria-current="page" href="{{route('users.create')}}">Registrarme</a>
+                    <a class="nav-link active a {{request()->routeIs('users.create')?'fs-4':''}}" aria-current="page" href="{{route('user.create')}}">Registrarme</a>
                     <a class="nav-link active a {{request()->routeIs('user.index')?'fs-4':''}}" aria-current="page" href="{{route('user.index')}}">Consulta de Usuarios</a>
                 </div>
             </div>

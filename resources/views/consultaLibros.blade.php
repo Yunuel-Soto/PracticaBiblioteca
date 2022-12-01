@@ -2,7 +2,7 @@
 
 @section('relleno')
 
-@if (session()->has('Eliminacion'))
+@if (session()->has('eliminar'))
     {!! "<script> Swal.fire(
                     'Buen trabajo',
                     'Libro eliminado',
@@ -18,11 +18,9 @@
 {{-- SwitAlert --}}
 <br>
 @foreach ($result as $consulta)
-    @include('modals/modalActualizarLib', ['id' => $consulta->idLibro])
-    @include('modals/modalEliminarLib', ['id' => $consulta->idLibro])
 
     <div class="container col-md-6">
-
+        @include('modalDetalles', ['id' => $consulta->idLibro])
         <div class="card text-center mb-5">
             <div class="card-header">
                 <h4>{{ $consulta->titulo }}</h4>
@@ -35,14 +33,13 @@
             </div>
 
             <div class="card-footer">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                    data-bs-target="#ModalActualizarLib{{$consulta->idLibro}}">
-                    <i class="bi bi-pencil"></i> Editar
-                </button>
+                <a href="{{route('libros.edit', $consulta->idLibro)}}"><button type="submit" class="btn btn-warning">Editar</button></a>
 
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                <a href="{{route('libros.show', $consulta->idLibro)}}"><button type="submit" class="btn btn-danger">Eliminar</button></a>
+
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                     data-bs-target="#ModalEliminarLib{{$consulta->idLibro}}">
-                    <i class="bi bi-trash3"></i> Eliminar
+                    <i class="bi bi-trash3"></i> Detalles
                 </button>
             </div>
         </div>
